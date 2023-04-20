@@ -19,12 +19,12 @@ const Navbar = () => {
         </div>
         <ul
           className={
-            `lg:static absolute top-full w-screen lg:w-fit border-b-2 left-0 px-2 py-2  flex-col lg:flex lg:flex-row gap-2 items-center text-lg lg:text-lg lg:gap-4 lg:border-0 ${getToggle ? 'flex ' : 'hidden'}`
+            `lg:static absolute top-full -translate-y-3 lg:translate-y-0 py-3 px-2 bg-slate-300 ring-1 lg:ring-0 right-14 rounded-lg lg:w-fit lg:bg-transparent flex-col lg:flex lg:flex-row gap-2 items-center text-lg lg:text-lg lg:gap-4 lg:border-0 ${getToggle ? 'flex ' : 'hidden'}`
           }
         >
-          <li className={"text-slate-500 lg:text-slate-900 lg:hover:text-slate-500"}><Link to={'/'}>Home</Link></li>
-          <li className={"text-slate-500 lg:text-slate-900 lg:hover:text-slate-500"}><Link to={'/portofolio'}>Portofolio</Link></li>
-          <li className={"text-slate-500 lg:text-slate-900 lg:hover:text-slate-500"}><Link to={'/about'}>About</Link></li>
+          <li className={"text-slate-700 lg:text-slate-900 lg:hover:text-slate-500"}><Link to={'/'}>Home</Link></li>
+          <li className={"text-slate-700 lg:text-slate-900 lg:hover:text-slate-500"}><Link to={'/portofolio'}>Portofolio</Link></li>
+          <li className={"text-slate-700 lg:text-slate-900 lg:hover:text-slate-500"}><Link to={'/about'}>About</Link></li>
         </ul>
       </div>
     </nav>
