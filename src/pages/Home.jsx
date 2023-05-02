@@ -4,7 +4,7 @@ import Typed from "react-typed";
 
 const Home = () => {
   return (
-    <Layout title={"Home"}>
+    <Layout title={"Home"} textcolor={"text-black"}>
       <div
         className={"w-screen min-h-screen h-fit bg-center bg-cover"}
         style={{ backgroundImage: `url('/IMG/setup.jpg')` }}
@@ -15,13 +15,7 @@ const Home = () => {
               "w-32 aspect-square bg-red-300 rounded-full bg-cover bg-center overflow-hidden"
             }
           >
-            <img
-              src='/IMG/self.jpg'
-              alt=''
-              className={
-                "w-full h-full hover:scale-125 transition-all duration-500"
-              }
-            />
+            <img src='/IMG/self.jpg' alt='' className={"w-full h-full"} />
           </div>
           {/* <h2 className={"text-4xl font-semibold font-serif text-center selection:bg-teal-400 selection:text-slate-900"}>
             I'm Haikal R Fadhilah
