@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  webserver:
+    container_name: nginxserver
+    image: nginx:latest
+    volumes:
+      - ./build:/var/www/html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "4000:80"
