@@ -8,12 +8,12 @@ module.exports = [
     type2: "Pandas",
   },
   {
-    title: "World Population Python Analyst",
-    img: "/IMG/population.jpg",
-    github: "https://github.com/HaikalRFadhilahh/populasi-data-analyst.git",
-    desc: "World Population Analyst With Python,Seaborn,Pandas and Jupyter Notebook",
-    type1: "Python",
-    type2: "Jupyter Notebook",
+    title: "Continuous Integration/Continuous Deployment Automation Server",
+    img: "/IMG/server.jpg",
+    github: "https://github.com/HaikalRFadhilahh/jenkinsfile.git",
+    desc: "Deployment script with CI/CD Jenkins and Kubernetes Container Orchestration",
+    type1: "Jenkins",
+    type2: "Kubernetes",
   },
   {
     title: "IoT Aquarium Temperatur Checker",
@@ -22,5 +22,5 @@ module.exports = [
     desc: "Aquarium Temperature Detector with Arduino and equipped with Internet of Things",
     type1: "Arduino",
     type2: "C++",
-  }
+  },
 ];

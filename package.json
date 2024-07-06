@@ -1,8 +1,8 @@
 {
   "name": "haik",
   "version": "0.1.0",
-  "homepage": "https://haik.my.id/",
-  "private": true,
+  "homepage": "http://127.0.0.1:3000/",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",

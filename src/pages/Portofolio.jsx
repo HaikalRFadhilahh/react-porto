@@ -10,9 +10,8 @@ const Portofolio = () => {
         <div className='container mx-auto py-16 flex justify-center flex-wrap gap-4'>
           <h2
             className={
-              "w-full text-3xl text-center font-extrabold font-mono my-3 tracking-tight"
-            }
-          >
+              "w-full text-3xl text-center font-extrabold font-mono my-3 tracking-tight text-slate-900"
+            }>
             My Project Portofolio
           </h2>
           {data.map((val) => {
