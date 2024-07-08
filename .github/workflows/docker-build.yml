@@ -27,5 +27,6 @@ jobs:
           echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
 
       - name: Push Docker Image To Github Container Registry
+        if: github.event.pull_request.merged == true
         run: |
           docker push ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
