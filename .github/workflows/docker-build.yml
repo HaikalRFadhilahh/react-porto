@@ -1,18 +1,23 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ "master" ]
+  # push:
+  # branches: none
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
+
+env:
+  DOCKER_REGISTRY: ghcr.io
+  TAG: ${{ secrets.VERSION }}.${{ github.run_number }}
+  IMAGE_NAME: haikalrfadhilahh/haik-react-portofolio
 
 jobs:
-
-  build:
-
+  # Build Dockerfile
+  Docker_Build:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout Ke Repository PR
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image From Dockerfile
+        run: docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
