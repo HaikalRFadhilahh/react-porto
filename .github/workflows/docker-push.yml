@@ -20,10 +20,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Docker Image Artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@master
         with:
           name: haik-react-portofolio
-          path: .
+          path: ./docker-img.tar
       - name: Load Docker Image
         run: docker load -i image.tar
 
