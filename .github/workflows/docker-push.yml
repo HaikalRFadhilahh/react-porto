@@ -23,7 +23,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: haik-react-portofolio
-          path: ./docker-img.tar
+          path: /artifact/docker-img.tar
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.TOKEN }}
 
