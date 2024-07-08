@@ -22,11 +22,14 @@ jobs:
       - name: Build Docker Image From Dockerfile
         run: docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
-      - name: Login To Github Image registry
-        run: |
-          echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
+      - name: Make a Artifact Docker Image
+        run: docker save ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }} -o docker-img.tar
 
-      - name: Push Docker Image To Github Container Registry
-        if: github.event.pull_request.merged == true
-        run: |
-          docker push ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+      # - name: Login To Github Image registry
+      #   run: |
+      #     echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
+
+      # - name: Push Docker Image To Github Container Registry
+      #   if: github.event.pull_request.merged == true
+      #   run: |
+      #     docker push ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
