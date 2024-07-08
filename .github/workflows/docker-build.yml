@@ -26,7 +26,7 @@ jobs:
         run: docker save ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }} -o docker-img.tar
 
       - name: Upload File Docker Image Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4
         with:
           name: haik-react-portofolio
           path: ./docker-img.tar
