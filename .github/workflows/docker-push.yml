@@ -23,8 +23,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: haik-react-portofolio
-          path: ./docker-img.tar
-
+          path: .
       - name: Load Docker Image
         run: docker load -i image.tar
 
