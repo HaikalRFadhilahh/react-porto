@@ -30,6 +30,9 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.TOKEN }}
 
+      - name: Checking Directory
+        run: pwd && echo "${{ github.workspace }}"
+
       - name: Load Docker Image
         run: docker load -i ./docker-img.tar
 
