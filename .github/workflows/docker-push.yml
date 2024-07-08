@@ -28,7 +28,7 @@ jobs:
           github-token: ${{ secrets.TOKEN }}
 
       - name: Load Docker Image
-        run: docker load -i docker-img.tar
+        run: docker load -i ./docker-img.tar
 
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin

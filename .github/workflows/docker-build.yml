@@ -30,3 +30,4 @@ jobs:
         with:
           name: haik-react-portofolio
           path: .
+          retention-days: 5
