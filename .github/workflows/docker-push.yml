@@ -1,4 +1,4 @@
-name: Push Docker Image After Merge PR
+name: Push Docker Image After Merge
 
 on:
   workflow_run:
