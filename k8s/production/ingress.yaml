@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: react-porto-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.org/client-max-body-size: "0"
+    nginx.org/proxy-connect-timeout: 10000s
+    nginx.org/proxy-read-timeout: 10000s
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - react.haik.my.id
+      secretName: ingress-cert-manager
+  rules:
+    - host: react.haik.my.id
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: react-porto-service
+              port:
+                number: 80
