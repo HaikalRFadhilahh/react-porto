@@ -29,7 +29,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@users.noreply.github.com"
           git commit -am "refactor: change version to ${{ env.TAG }}"
-          git push origin ${{ github.ref_name }}
+          git push origin ${{ github.ref_name }} --force
 
       - name: Check Docker Build Docker Images
         run: docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
