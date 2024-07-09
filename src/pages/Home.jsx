@@ -21,7 +21,7 @@ const Home = () => {
           <Typed
             strings={[
               "I'm Haikal R Fadhilah",
-              "I'm Web Developer",
+              // "I'm Web Developer",
               "I'm DevOps Engineer",
               "I'm Cyber Security Ethusiast",
             ]}
