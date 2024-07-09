@@ -1,13 +1,13 @@
-name: Push Docker Image After Merge PR
+name: Build Docker Image and Push To Github Container Registry
 
 on:
-  workflow_run:
-    workflows: ["Docker Image CI"]
-    types:
-      - completed
-  # push:
-  #   branches:
-  #     - master
+  # workflow_run:
+  #   workflows: ["Docker Image CI"]
+  #   types:
+  #     - completed
+  push:
+    branches:
+      - master
 
 env:
   DOCKER_REGISTRY: ghcr.io
@@ -15,26 +15,14 @@ env:
   IMAGE_NAME: haikalrfadhilahh/haik-react-portofolio
 
 jobs:
-  Push_Docker_Image:
-    if: github.event.workflow_run.conclusion == 'success'
+  Build_Docker_Image:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Download Docker Image Artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: haik-react-portofolio
-          path: ./docker-img.tar
-          run-id: ${{ github.event.workflow_run.id }}
-          github-token: ${{ secrets.TOKEN }}
-
-      - name: Checking Directory
-        run: pwd && echo "${{ github.workspace }}"
-
-      - name: Load Docker Image
-        run: docker load -i ${{ github.workspace }}/docker-img.tar
+      - name: Check Docker Build Docker Images
+        run: docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
