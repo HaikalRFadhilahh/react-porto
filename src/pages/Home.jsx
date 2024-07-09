@@ -23,7 +23,8 @@ const Home = () => {
               "I'm Haikal R Fadhilah",
               // "I'm Web Developer",
               "I'm DevOps Engineer",
-              "I'm Cyber Security Ethusiast",
+              "CTF Player",
+              // "I'm Cyber Security Ethusiast",
             ]}
             typeSpeed={150}
             backSpeed={70}
