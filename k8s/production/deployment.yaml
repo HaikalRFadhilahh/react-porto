@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: react-porto
-          image: ghcr.io/haikalrfadhilahh/haik-react-portofolio:1.31
+          image: ghcr.io/haikalrfadhilahh/haik-react-portofolio:1.32
           ports:
             - containerPort: 80
           resources:
