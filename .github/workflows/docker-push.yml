@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Change Version Deployment Kubernetes
-        run: sed -i 's|ghcr\.io/haikalrfadhilahh/haik-react-portofolio:[^"]*|ghcr.io/haikalrfadhilahh/haik-react-portofolio:${{ env.TAG }}/k8s/production/deployment.yaml
+        run: sed -i 's|ghcr\.io/haikalrfadhilahh/haik-react-portofolio:[^"]*|ghcr.io/haikalrfadhilahh/haik-react-portofolio:${{ env.TAG }} ${{ github.workspace }}/k8s/production/deployment.yaml
 
       - name: Make Commits For Version Deployment Kubernetes
         run: |
