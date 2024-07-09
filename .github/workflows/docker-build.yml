@@ -8,7 +8,7 @@ on:
 
 env:
   DOCKER_REGISTRY: ghcr.io
-  TAG: ${{ vars.VERSION }}.${{ github.run_number }}
+  TAG: ci-test
   IMAGE_NAME: haikalrfadhilahh/haik-react-portofolio
 
 jobs:
@@ -19,15 +19,5 @@ jobs:
       - name: Checkout Ke Repository PR
         uses: actions/checkout@v4
 
-      - name: Build Docker Image From Dockerfile
+      - name: Check Docker Build Docker Images
         run: docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
-
-      - name: Make a Artifact Docker Image
-        run: docker save ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }} -o docker-img.tar
-
-      - name: Upload File Docker Image Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: haik-react-portofolio
-          path: .
-          retention-days: 5
