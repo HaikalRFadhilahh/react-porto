@@ -22,7 +22,7 @@ const Home = () => {
             strings={[
               "I'm Haikal R Fadhilah",
               "I'm Web Developer",
-              // "I'm DevOps Engineer",
+              "I'm DevOps Engineer",
               "I'm CTF Player",
               "I'm Cyber Security Ethusiast",
             ]}
