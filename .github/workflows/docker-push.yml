@@ -24,8 +24,14 @@ jobs:
       - name: Check Docker Build Docker Images
         run: docker build . --file Dockerfile --tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
+      - name: Tagging For Latest Version
+        run: docker tag ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }} ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USERNAME }} --password-stdin
 
-      - name: Push Docker Image
+      - name: Push Docker Image Version
         run: docker push ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
+
+      - name: Push Docker Image Latest Version
+        run: docker push ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
